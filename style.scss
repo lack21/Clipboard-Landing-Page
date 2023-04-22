@@ -1,0 +1,319 @@
+// lear
+// Clipboard Landing Page
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bai Jamjuree", sans-serif;
+}
+
+// Colors
+$transparentCyan: hsla(171, 66, 44, 0.5);
+$lightCyan: hsl(171, 66%, 44%);
+$darkCyan: hsl(171, 66%, 34%);
+$transparentBlue: hsla(233, 100%, 69%, 0.5);
+$lightBlue: hsl(233, 100%, 69%);
+$darkBlue: hsl(233, 100%, 59%);
+$darkGrayishBlue: hsl(210, 10%, 33%);
+$grayishBlue: hsl(201, 11%, 66%);
+$white: hsl(0, 0, 100%);
+
+// Global Styles
+@mixin Button($color, $secondColor, $thirdColor) {
+  color: $white;
+  padding: 0.8rem 2rem;
+  background-color: $color;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  border-bottom: 3.25px solid $secondColor;
+  box-shadow: 0 0.5rem 1rem $thirdColor;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  color: $darkGrayishBlue;
+}
+
+.heading {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.text {
+  line-height: 1.75rem;
+  color: $grayishBlue;
+  font-size: 1.1rem;
+  font-weight: 400;
+  max-width: 650px;
+  margin: auto;
+}
+
+.buttons {
+  padding-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+
+  .btn {
+    @include Button($lightCyan, $darkCyan, $transparentCyan);
+  }
+
+  .btn-2 {
+    @include Button($lightBlue, $darkBlue, $transparentBlue);
+  }
+}
+
+.top-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+// Header
+.header {
+  padding: 7.5rem 5%;
+  text-align: center;
+
+  .logo {
+    display: inline-block;
+  }
+
+  .title {
+    font-size: 2.25rem;
+    padding: 3rem 0 1rem;
+  }
+}
+
+// Snippets
+.snippets {
+  padding: 5rem 5%;
+  text-align: center;
+
+  .row {
+    margin: 5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+
+    .image-computer {
+      width: 100%;
+      margin-left: -5rem;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      width: 100%;
+      text-align: left;
+      margin-left: 2.5rem;
+
+      .name {
+        font-size: 1.4rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .text {
+        margin-left: 0;
+        max-width: 450px;
+      }
+    }
+  }
+}
+
+// Devices
+.devices {
+  padding: 5rem 5% 0;
+  text-align: center;
+
+  .image-devices {
+    display: block;
+    margin: 5rem auto;
+    width: min(900px, 100%);
+  }
+}
+
+// Workflow
+.workflow {
+  text-align: center;
+  padding: 2.5rem 5%;
+
+  .row {
+    display: flex;
+    justify-content: center;
+    margin: 3.5rem 0;
+    gap: 2.5rem;
+
+    .item {
+      flex-basis: 100%;
+
+      img {
+        display: inline-block;
+      }
+
+      .name {
+        font-size: 1.4rem;
+        padding: 2.25rem 0 0.75rem;
+      }
+    }
+  }
+
+  .companies {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5rem 0;
+  }
+}
+
+// Bottom Content
+.bottom-content {
+  text-align: center;
+  padding: 5rem 5% 7.5rem;
+}
+
+// Footer
+.footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 3rem 5%;
+  background-color: hsla(201, 11%, 66%, 0.1);
+
+  .logo {
+    width: 64px;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+
+    .link {
+      font-weight: 400;
+      color: $darkGrayishBlue;
+      cursor: pointer;
+      font-size: 1.1rem;
+
+      &:hover {
+        color: $lightCyan;
+      }
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+
+    img {
+      display: inline-block;
+      cursor: pointer;
+
+      &:hover {
+        filter: brightness(200%) saturate(10%) sepia(1) hue-rotate(120deg);
+        -webkit-filter: brightness(200%) saturate(10%) sepia(1)
+          hue-rotate(120deg);
+      }
+    }
+  }
+}
+
+// For Smaller Devices
+@media screen and (max-width: 948px) {
+  .snippets .row {
+    flex-direction: column;
+
+    .image-computer {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .content {
+      margin-left: 0;
+      text-align: center;
+
+      .text {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .workflow .row {
+    flex-direction: column;
+  }
+
+  .workflow .companies {
+    flex-direction: column;
+    gap: 7.5rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+
+    .item {
+      align-items: center;
+      gap: 2.25rem;
+    }
+  }
+}
+
+@media screen and (max-width: 478px) {
+  .buttons {
+    flex-direction: column;
+
+    .btn,
+    .btn-2 {
+      width: 100%;
+    }
+  }
+
+  .header {
+    padding: 5rem 5%;
+  }
+
+  .snippets,
+  .devices {
+    padding: 2.5rem 5%;
+  }
+
+  .workflow .companies {
+    padding: 2.5rem 0;
+  }
+
+  .header .title {
+    font-size: 2rem;
+  }
+
+  .heading {
+    font-size: 1.75rem;
+  }
+
+  .name {
+    font-size: 1.3rem !important;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+}
